@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.20.0/js/mdb.min.js" integrity="sha512-XFd1m0eHgU1F05yOmuzEklFHtiacLVbtdBufAyZwFR0zfcq7vc6iJuxerGPyVFOXlPGgM8Uhem9gwzMI8SJ5uw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <div id="container">
+        <div id="nav">
+            <!-- <h2>Animated Sidenav Example</h2> -->
+          <!-- <p>Click on the element below to open the side navigation menu.</p> -->
+          <span style="font-size:30px;cursor:pointer" onclick="openNav()"><i class="fa-solid fa-bars" ></i></span>
+            <section id="title">
+                <img src="https://assets.inshorts.com/website_assets/images/logo_inshorts.png" alt="inshorts" id="image">
+            </section>
+        </div>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <h2>Categories</h2><hr>
+            <a href="#" id="business">business</a>
+            <a href="#" id="entertainment">entertainment</a>
+            <a href="#" id="general">general</a>
+            <a href="#" id="health">health</a>
+            <a href="#" id="science">science</a>
+            <a href="#" id="sports">sports</a>
+            <a href="#" id="technology">technology</a>
+          </div>
+          
+          
+          
+            <div id="promotion">
+            <section id="para">
+            <p class="exp">For the best experience use Inshorts App on your smartphone</p>
+            </section>
+            <section id="apple">
+            <img src="data:image/png;base64,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" alt="appstore" id="appstore">
+            </section>
+            <section id="android">
+                <img src="data:image/png;base64,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" alt="playstore" id="playstore">
+            </section>
+            </div>
+            <div id="modes">
+                <button id="btn1" onclick="myFunc()">Dark Mode</button>
+            </div>
+        <div id="main">
+            <div id="div1">
+                <section id="image1"></section>
+                <section id="content1"></section>
+            </div>
+            <div>
+                <section id="image2"></section>
+                <section id="content2"></section>
+            </div>
+            <div>
+                <section id="image3"></section>
+                <section id="content3"></section>
+            </div>
+            <div>
+                <section id="image4"></section>
+                <section id="content4"></section>
+            </div>
+            <div>
+                <section id="image5"></section>
+                <section id="content5"></section>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+  }
+  
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+  }
+
+  function myFunc(){
+        
+        var buttonRef=document.getElementById("btn1");
+        buttonRef.innerHTML="Dark Mode";
+        // buttonRef.style.color="black";
+        var button=document.body;
+        button.classList.toggle("dark-mode");
+        if(button.classList.contains("dark-mode")){
+            buttonRef.innerText="Light Mode";
+            // buttonRef.style.color="white";
+        }
+  }
+
+
+var divRef=document.getElementById("main");
+var api="b6d47a93199e4d768f46773eba6b32cd";
+
+let details= async(name)=>{
+    const url=`https://newsapi.org/v2/everything?q=tesla&from=2022-10-15&sortBy=publishedAt&apiKey=${api}`;
+    const response= await fetch (url);
+    const data=await response.json();
+    console.log(data.articles);
+    // showProfile(data);    
+showCards(data)}
+details();
+function showCards(data){
+    data.articles.forEach(e => {
+        // console.log(e)
+        divRef.innerHTML=`<div id="main">
+        <div id="div1">
+    <section id="image1"><img src="${e.urlToImage}"></section>
+    <section id="content1"><p class="para1">${e.title}</p><br>
+    <span id="span1">${e.content}</span><br><br>
+    <span id="time">${e.publishedAt}</span><br><br>
+    <span id="description">${e.description}</span></section>
+    </div>
+    <div id="div2">
+    <section id="image1"><img src="${e.urlToImage}"></section>
+    <section id="content1"><p class="para1">${e.title}</p><br>
+    <span id="span1">${e.content}</span><br><br>
+    <span id="time">${e.publishedAt}</span><br><br>
+    <span id="description">${e.description}</span></section>
+    </div>
+    <div id="div3">
+    <section id="image1"><img src="${e.urlToImage}"></section>
+    <section id="content1"><p class="para1">${e.title}</p><br>
+    <span id="span1">${e.content}</span><br><br>
+    <span id="time">${e.publishedAt}</span><br><br>
+    <span id="description">${e.description}</span></section>
+    </div>
+    <div class="div4">
+    <section id="image1"><img src="${e.urlToImage}"></section>
+    <section id="content1"><p class="para1">${e.title}</p><br>
+    <span id="span1">${e.content}</span><br><br>
+    <span id="time">${e.publishedAt}</span><br><br>
+    <span id="description">${e.description}</span></section>
+    </div>
+    <div class="div4">
+    <section id="image1"><img src="${e.urlToImage}"></section>
+    <section id="content1"><p class="para1">${e.title}</p><br>
+    <span id="span1">${e.content}</span><br><br>
+    <span id="time">${e.publishedAt}</span><br><br>
+    <span id="description">${e.description}</span></section>
+    </div>
+    <div class="div4">
+    <section id="image1"><img src="${e.urlToImage}"></section>
+    <section id="content1"><p class="para1">${e.title}</p><br>
+    <span id="span1">${e.content}</span><br><br>
+    <span id="time">${e.publishedAt}</span><br><br>
+    <span id="description">${e.description}</span></section>
+    </div>
+    <div class="div4">
+    <section id="image1"><img src="${e.urlToImage}"></section>
+    <section id="content1"><p class="para1">${e.title}</p><br>
+    <span id="span1">${e.content}</span><br><br>
+    <span id="time">${e.publishedAt}</span><br><br>
+    <span id="description">${e.description}</span></section>
+    </div>
+    <div class="div4">
+    <section id="image1"><img src="${e.urlToImage}"></section>
+    <section id="content1"><p class="para1">${e.title}</p><br>
+    <span id="span1">${e.content}</span><br><br>
+    <span id="time">${e.publishedAt}</span><br><br>
+    <span id="description">${e.description}</span></section>
+    </div>
+    <div class="div4">
+    <section id="image1"><img src="${e.urlToImage}"></section>
+    <section id="content1"><p class="para1">${e.title}</p><br>
+    <span id="span1">${e.content}</span><br><br>
+    <span id="time">${e.publishedAt}</span><br><br>
+    <span id="description">${e.description}</span></section>
+    </div>
+    <div class="div4">
+    <section id="image1"><img src="${e.urlToImage}"></section>
+    <section id="content1"><p class="para1">${e.title}</p><br>
+    <span id="span1">${e.content}</span><br><br>
+    <span id="time">${e.publishedAt}</span><br><br>
+    <span id="description">${e.description}</span></section>
+    </div>
+    <div class="div4">
+    <section id="image1"><img src="${e.urlToImage}"></section>
+    <section id="content1"><p class="para1">${e.title}</p><br>
+    <span id="span1">${e.content}</span><br><br>
+    <span id="time">${e.publishedAt}</span><br><br>
+    <span id="description">${e.description}</span></section>
+    </div>
+    <div class="div4">
+    <section id="image1"><img src="${e.urlToImage}"></section>
+    <section id="content1"><p class="para1">${e.title}</p><br>
+    <span id="span1">${e.content}</span><br><br>
+    <span id="time">${e.publishedAt}</span><br><br>
+    <span id="description">${e.description}</span></section>
+    </div>
+    <div class="div4">
+    <section id="image1"><img src="${e.urlToImage}"></section>
+    <section id="content1"><p class="para1">${e.title}</p><br>
+    <span id="span1">${e.content}</span><br><br>
+    <span id="time">${e.publishedAt}</span><br><br>
+    <span id="description">${e.description}</span></section>
+    </div>
+    <div class="div4">
+    <section id="image1"><img src="${e.urlToImage}"></section>
+    <section id="content1"><p class="para1">${e.title}</p><br>
+    <span id="span1">${e.content}</span><br><br>
+    <span id="time">${e.publishedAt}</span><br><br>
+    <span id="description">${e.description}</span></section>
+    </div>
+    <div class="div4">
+    <section id="image1"><img src="${e.urlToImage}"></section>
+    <section id="content1"><p class="para1">${e.title}</p><br>
+    <span id="span1">${e.content}</span><br><br>
+    <span id="time">${e.publishedAt}</span><br><br>
+    <span id="description">${e.description}</span></section>
+    </div>
+    <div class="div4">
+    <section id="image1"><img src="${e.urlToImage}"></section>
+    <section id="content1"><p class="para1">${e.title}</p><br>
+    <span id="span1">${e.content}</span><br><br>
+    <span id="time">${e.publishedAt}</span><br><br>
+    <span id="description">${e.description}</span></section>
+    </div>
+    <div class="div4">
+    <section id="image1"><img src="${e.urlToImage}"></section>
+    <section id="content1"><p class="para1">${e.title}</p><br>
+    <span id="span1">${e.content}</span><br><br>
+    <span id="time">${e.publishedAt}</span><br><br>
+    <span id="description">${e.description}</span></section>
+    </div>
+    <div class="div4">
+    <section id="image1"><img src="${e.urlToImage}"></section>
+    <section id="content1"><p class="para1">${e.title}</p><br>
+    <span id="span1">${e.content}</span><br><br>
+    <span id="time">${e.publishedAt}</span><br><br>
+    <span id="description">${e.description}</span></section>
+    </div>
+    <div class="div4">
+    <section id="image1"><img src="${e.urlToImage}"></section>
+    <section id="content1"><p class="para1">${e.title}</p><br>
+    <span id="span1">${e.content}</span><br><br>
+    <span id="time">${e.publishedAt}</span><br><br>
+    <span id="description">${e.description}</span></section>
+    </div>
+    <div class="div4">
+    <section id="image1"><img src="${e.urlToImage}"></section>
+    <section id="content1"><p class="para1">${e.title}</p><br>
+    <span id="span1">${e.content}</span><br><br>
+    <span id="time">${e.publishedAt}</span><br><br>
+    <span id="description">${e.description}</span></section>
+    </div>
+    </div>`
+    });
+}
+    </script>
+</body>
+</html>
